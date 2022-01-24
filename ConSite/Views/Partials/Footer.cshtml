@@ -1,0 +1,54 @@
+﻿@model ConSite.ViewModels.FooterViewModel
+
+<footer class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center py-4">
+                
+                <ul class="list-inline-item">
+
+
+                    @foreach (var item in Model.ListaFooterLinks)
+                    {
+                        <li class="list-inline-item">
+        
+                            <a href="@item.FooterLink.Url" target="@item.FooterLink.Target" title=@item.FooterLinkTitle>
+
+
+
+                                @if (item.SocialIconSelector != null && item.SocialIconSelector.Any())
+                                {
+                                    var icon = item.SocialIconSelector;
+
+                                    if (icon.Equals("Facebook"))
+                                    {
+                                        <span style="color:white"><i class="fab fa-facebook-f fa-2x text-white"></i></span>
+
+                                    }
+                                    else if (icon.Equals("Instagram"))
+                                    {
+
+                                      
+                                        <span style="color:white"><i class="fab fa-instagram fa-2x text-white"></i></span>
+                                        
+                                    }
+                                    else
+                                    {
+                                        <span style="color:white"><i class="fab fa-twitter fa-2x text-white"></i></span>
+                                    }
+
+                                }
+
+                            </a>
+
+                    </li>
+
+                     }
+                        
+                    </ul>
+                <p class="text-white">Copyright &copy; @DateTime.Now.Year My Page</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
